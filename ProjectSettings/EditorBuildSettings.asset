@@ -6,7 +6,43 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/TheBoardTakes/Scenes/Persistent/Bootstrap.unity
+    guid: a55282c314067374da1118423b1f5cab
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Persistent/Persistent_App.unity
+    guid: 188d67252fdbf584c9f7657891976072
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Persistent/LoadingOverlay.unity
+    guid: bc77f8af9efcd31498bf3485e1e220a5
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Persistent/SettingsOverlay.unity
+    guid: ce479ad63e839d348aba9280428d7524
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Flow/SplashScreen.unity
+    guid: 2d33c0cb686dcab45a368adc957d5e09
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Flow/IntroScreen.unity
+    guid: 1163db50aebb4544592a1bcc8ebae0ad
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Flow/MainMenu.unity
+    guid: 1f4624fc78ded9b46b3e27e0b0cbc80b
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Flow/Multiplayer_Lobby.unity
+    guid: fae8245bd674acd4c9bb72a6cc337fcc
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Gameplay/Gameplay_Core.unity
+    guid: fb817be7589e0cf4d81bf0d4543f9623
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/World/Map_Geometry.unity
+    guid: 6a0a05b6002922a4d9d90905078a9cc0
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/World/Map_Lighting_Persistent.unity
+    guid: 056e7189a02f69d4e890e9c8eb57afc1
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Flow/Ending_Cutscene.unity
+    guid: a13cb5a2a24978e4088dc0194f3f5305
+  - enabled: 1
+    path: Assets/TheBoardTakes/Scenes/Flow/Credits.unity
+    guid: 96ad19f5769ebba42be9ddb71b0c59be
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
