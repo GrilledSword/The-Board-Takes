@@ -1,0 +1,30 @@
+{
+  "items": [
+    { "k": "game.title", "v": "The Board Takes" },
+    { "k": "game.subtitle", "v": "Játszol, amíg a tábla meg nem kapja, ami jár." },
+    { "k": "ui.menu.play_solo", "v": "Leülök" },
+    { "k": "ui.menu.play_table", "v": "Az Asztal (2–4)" },
+    { "k": "ui.menu.lobby", "v": "Lobby" },
+    { "k": "ui.menu.settings", "v": "Beállítások" },
+    { "k": "ui.menu.credits", "v": "Stáblista" },
+    { "k": "ui.menu.quit", "v": "Elhagyom a termet" },
+    { "k": "ui.settings.video", "v": "Kép és kijelző" },
+    { "k": "ui.settings.graphics", "v": "Grafika" },
+    { "k": "ui.settings.audio", "v": "Hang és voice" },
+    { "k": "ui.settings.controls", "v": "Irányítás" },
+    { "k": "ui.settings.gameplay", "v": "Játékmenet" },
+    { "k": "ui.settings.access", "v": "Akadálymentesítés" },
+    { "k": "ui.common.apply", "v": "Alkalmaz" },
+    { "k": "ui.common.back", "v": "Vissza" },
+    { "k": "flow.splash", "v": "THE BOARD TAKES" },
+    { "k": "flow.intro", "v": "Ülj le. Ne kérdezd, miért." },
+    { "k": "piece.pawn", "v": "Gyalog" },
+    { "k": "piece.knight", "v": "Huszár" },
+    { "k": "piece.bishop", "v": "Futó" },
+    { "k": "piece.rook", "v": "Bástya" },
+    { "k": "piece.queen", "v": "Vezér" },
+    { "k": "piece.king", "v": "Király" },
+    { "k": "grandfather.idle", "v": "Te lépsz." },
+    { "k": "grandfather.cheat", "v": "Az a figura sosem a tiéd volt." }
+  ]
+}

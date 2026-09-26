@@ -1,97 +1,59 @@
-# THE BOARD TAKES
-### A tábla elveszi
+# The Board Takes
 
-Psychological horror chess. Real rules. The stake is flesh.
+Horror chess. The stake is not points. The stake is flesh.
 
-Unity **6000.6.3f1** (6.3 LTS) · URP 17.6 · Input System 1.20  
-Studio: OverBitCore · Repo: [GrilledSword/The-Board-Takes](https://github.com/GrilledSword/The-Board-Takes)
+Someone sits you at a table. There is no why at the start — only a rule: you play until the board takes what it is owed. Singleplayer is one long night in a rotting room. Multiplayer is the same table with more debtors. The board does not choose. All of you pay.
 
-Someone sits you at a table. There is no why. You play until the board is paid.
+This is **not** chess-flavoured cards. It is real chess (check, castle, en passant, promotion) with a body ledger instead of an HP bar.
 
-- **Singleplayer** — one long night in a rotting room. Inscryption cabin + CloverPit cell + Lucas Baker's table.
-- **Multiplayer (2–4)** — same table, same debt. Last standing. The dead stay seated.
+- Studio: OverBitCore
+- Engine: Unity **6000.6.3f1** / URP 17.6 / Input System 1.20
+- Platforms: Windows, Linux, Android — cross-play planned (Netcode slice)
+- Repo: https://github.com/GrilledSword/The-Board-Takes
 
-This is **not** chess-flavoured cards. Castling, en passant, promotion, check, mate, stalemate all work. Horror comes from the rules being honest.
+## What this repo is (and is not)
 
----
+Code and contracts first. **No generated UI canvases, no generated meshes, no generated animations.** You build those. The systems expose events and data so a hand-made menu / table / pawn can plug in without rewriting the core.
 
 ## Slice map
 
 | Slice | Scope |
 | --- | --- |
-| **01 / 10** | Additive scene architecture, bootstrap, loading overlay, locale, AAA settings model + runtime menu |
-| 02 | Chess rules engine + board presentation |
-| 03 | Body Ledger + capture punishments |
-| 04 | The Host (Nagyater), piece voices, check/mate presentation |
-| 05 | Singleplayer room / tools / campaign loop |
-| 06 | Multiplayer table, timing controls, voice chat hooks |
-| 07 | Art / URP volume / table atmosphere pass |
-| 08 | Accessibility + settings UI polish + input rebind |
-| 09 | Content, endings, credits, audio bed |
-| 10 | Netcode hardening, patch pipeline, ship checklist |
+| **01** | Boot kernel, additive scene flow, settings *data* + applicators, loc, input wrapper |
+| 02 | Main menu / settings screen *wiring* (you author the UI) |
+| 03 | Rules-legal chess engine + clocks |
+| 04 | Body ledger + capture ritual (the board drinks) |
+| 05 | Grandfather, piece voices, check-as-warning |
+| 06 | Singleplayer room between games (drawers, tools that cost flesh) |
+| 07 | Multiplayer lobby, NGO, cross-play toggle |
+| 08 | Mixer, spatial audio, voice chat hooks |
+| 09 | Accessibility + QoL pass |
+| 10 | Content pipeline, patch versioning, shipping toggles |
 
----
+## Open in Unity
 
-## Open in Unity (slice 01)
+1. Unity Hub → Add → this folder.
+2. Editor **6000.6.3f1**.
+3. Menu: `The Board Takes / Slice 01 / Create Empty Scenes`.
+4. Play from `Assets/_BoardTakes/Scenes/Boot/Boot.unity`.
 
-1. Clone the repo. Open with **Unity 6.3 LTS (6000.6.3f1)**.
-2. Menu: **The Board Takes → Slice 01 → Scaffold Scenes + Build Settings**.
-3. Press Play on `Assets/TheBoardTakes/Scenes/Persistent/Bootstrap.unity` (the scaffold sets it as scene 0).
-4. Flow: Splash → Intro → Main Menu. **Settings** is a full AAA panel generated at runtime.
+First scene in Build Settings must be Boot. The scaffold writes that for you.
 
-You do **not** hand-place thirteen scenes. The editor scaffold creates empty, correctly tagged shells and registers them in Build Settings.
-
----
-
-## Scene architecture
-
-Only `Bootstrap` is a single-load entry. Everything else is **additive**.
+## Folder law
 
 ```
-Bootstrap                    // index 0, dies after Persistent is up
-Persistent_App               // EventBus, SceneDirector, Settings, Locale, AudioRouter
-LoadingOverlay               // stays loaded, shown/hidden
-SettingsOverlay              // stays loaded, shown/hidden
-
-SplashScreen
-IntroScreen
-MainMenu
-
-Multiplayer_Lobby
-Gameplay_Core                // rules + pieces + HUD
-Map_Geometry                 // table, room mesh
-Map_Lighting_Persistent      // candles, volumes, baked probes later
-
-Ending_Cutscene
-Credits
+Assets/_BoardTakes/
+  Boot/           additive loader + flow
+  Core/           kernel, events, contracts
+  Settings/       AAA settings model + apply
+  Input/          InputSystem_Actions wrapper
+  Localization/   JSON tables, no extra package
+  Scenes/         empty scene slots (created by scaffold)
+  Editor/         one-shot scene scaffold only
 ```
 
-Recipes live in `Assets/TheBoardTakes/Data/Scenes/`. Change a recipe, not the loader.
+Do not dump scripts into `Assets/` root. Do not use `FindObjectOfType` — Unity 6 wants `FindFirstObjectByType` / `FindAnyObjectByType` / `FindObjectsByType(..., FindObjectsSortMode.None)`.
 
----
+## Languages
 
-## Code layout
-
-```
-Assets/TheBoardTakes/
-  Runtime/           asmdef TheBoardTakes.Runtime
-  Editor/            asmdef TheBoardTakes.Editor
-  Data/
-  Localization/
-  Scenes/
-```
-
-Patch rule: public contracts live in `TheBoardTakes.Core.*` interfaces. Implementations can be swapped without rewriting callers.
-
----
-
-## Languages (slice 01)
-
-`en`, `hu` JSON tables under `Assets/TheBoardTakes/Localization/`.  
-`ILocaleService` is the seam — Unity Localization package can replace the JSON backend later without touching UI.
-
----
-
-## License / content warning
-
-Work-in-progress horror. Body horror, amputation as game rules, implied execution. No minors. No animals as players.
+`en`, `hu` ship in slice 01. Add a JSON next to them and register the code in `LocalizationService`.

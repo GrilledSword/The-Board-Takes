@@ -1,0 +1,30 @@
+{
+  "items": [
+    { "k": "game.title", "v": "The Board Takes" },
+    { "k": "game.subtitle", "v": "You play until the board is owed nothing." },
+    { "k": "ui.menu.play_solo", "v": "Sit down" },
+    { "k": "ui.menu.play_table", "v": "The Table (2–4)" },
+    { "k": "ui.menu.lobby", "v": "Lobby" },
+    { "k": "ui.menu.settings", "v": "Settings" },
+    { "k": "ui.menu.credits", "v": "Credits" },
+    { "k": "ui.menu.quit", "v": "Leave the room" },
+    { "k": "ui.settings.video", "v": "Video & Display" },
+    { "k": "ui.settings.graphics", "v": "Graphics" },
+    { "k": "ui.settings.audio", "v": "Audio & Voice" },
+    { "k": "ui.settings.controls", "v": "Controls" },
+    { "k": "ui.settings.gameplay", "v": "Gameplay" },
+    { "k": "ui.settings.access", "v": "Accessibility" },
+    { "k": "ui.common.apply", "v": "Apply" },
+    { "k": "ui.common.back", "v": "Back" },
+    { "k": "flow.splash", "v": "THE BOARD TAKES" },
+    { "k": "flow.intro", "v": "Sit. Do not ask why." },
+    { "k": "piece.pawn", "v": "Pawn" },
+    { "k": "piece.knight", "v": "Knight" },
+    { "k": "piece.bishop", "v": "Bishop" },
+    { "k": "piece.rook", "v": "Rook" },
+    { "k": "piece.queen", "v": "Queen" },
+    { "k": "piece.king", "v": "King" },
+    { "k": "grandfather.idle", "v": "Your move." },
+    { "k": "grandfather.cheat", "v": "That piece was never yours." }
+  ]
+}
